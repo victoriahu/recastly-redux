@@ -4,15 +4,23 @@ import { connect } from 'react-redux';
 import handleSearchChange from '../actions/search.js';
 
 
+const mapDispatchToProps = (dispatch) => {
+    return {
+      handleSearchInputChange: q => {
+        dispatch(handleSearchChange(q))
+      }
+    }
+  }
 
-var SearchContainer = () => {
+var SearchContainer = connect(null, mapDispatchToProps)(Search);
+
 
 //Search.js is our component that we want to connect to
 //handleSearchChange is our dispatch action creator
 //mapStateToProps... handleInputChange accepts state
-  connect(Search.handleInputChange, handleSearchChange)(Search);
 
-};
+
+
 
 
 
