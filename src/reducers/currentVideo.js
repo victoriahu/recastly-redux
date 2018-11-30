@@ -16,7 +16,7 @@ var currentVideoReducer = (state = null, action) => {
 
     //{}
 
-    return action.video;
+    return action.video || null;
     // console.log("if action type, return test", test);
     // return test;
 
