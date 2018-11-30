@@ -13,13 +13,12 @@ var handleVideoSearch = (q) => {
   //TODO:  Write an asynchronous action to handle a video search!
   // searchYouTube({key: YOUTUBE_API_KEY, query: q}, callback);
   // return changeVideoList(data);
-  return (dispatch) => {
+  return _.debounce((dispatch) => {
     searchYouTube({key: YOUTUBE_API_KEY, query: q}, function(data) {
     dispatch(changeVideoList(data));
     dispatch(changeVideo(data[0]));
     });
-  };
-    
+  }, 2000);
 };
 // const boundHandleVideoSearch = q => dispatch(handleVideoSearch(q));
 
